@@ -1,0 +1,9 @@
+{% if request.user.is_authenticated %}
+    <span id="count-{{ prefix }}-{{ obj.pk }}">{{ obj.likes_count }}</span>
+    <a href="{% url like_url_name obj.pk %}"
+       class="btn btn-outline-secondary"
+       data-key="likes"
+       data-counter-id="count-{{ prefix }}-{{ obj.pk }}">
+        {% if request.user in obj.likes.all %}Убрать лайк{% else %}"Лайк"{% endif %}
+    </a>
+{% endif %}

@@ -15,6 +15,9 @@
                         <span>Блог: {% if article.blog %}{{ article.blog.title }}{% else %}---{% endif %}</span>
                     </div>
                     <div class="text-end me-3">
+
+                        {% include 'partial/like.html' with obj=comment prefix='comment' like_url_name='articles:comment-like' only %}
+                        
                         <a href="{% url 'articles:update' article.pk %}" class="btn btn-outline-warning">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>

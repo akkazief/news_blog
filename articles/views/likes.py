@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.views.decorators.cache import never_cache
+
 
 from articles.models import Article, Comment
 
-
+@never_cache
 @login_required
 def article_like(request, pk):
     article = get_object_or_404(Article, pk=pk)
@@ -21,7 +23,7 @@ def article_like(request, pk):
 
     return JsonResponse({'count': article.likes_count, 'liked': liked})
 
-
+@never_cache
 @login_required
 def comment_like(request, pk):
     comment = get_object_or_404(Comment, pk=pk)

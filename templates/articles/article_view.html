@@ -38,6 +38,9 @@
                 <p>{{ forloop.counter }}. {{ comment }}</p>
                 {% empty %}
                 <p>Комментариев нет</p>
+
+            {% include 'partial/like.html' with obj=article prefix='article' like_url_name='articles:article-like' only %}
+
             {% endfor %}
         </div>
         <div class="text-end me-3 mb-3">
