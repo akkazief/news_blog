@@ -16,6 +16,16 @@ class Comment(BaseModel):
         related_name="comments",
         verbose_name="Автор"
     )
+    
+    likes = models.ManyToManyField(
+        get_user_model(),
+        related_name='liked_comments',
+        blank=True,
+        verbose_name='Лайки'
+    )
+
+    likes_count = models.PositiveIntegerField(default=0, verbose_name='Количество лайков')
+
 
     def __str__(self):
         return self.text[:20]

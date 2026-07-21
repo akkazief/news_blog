@@ -51,6 +51,15 @@ class Article(BaseModel):
         verbose_name="Теги"
     )
 
+    likes = models.ManyToManyField(
+        get_user_model(),
+        related_name='liked_articles',
+        blank=True,
+        verbose_name='Лайки'
+    )
+
+    likes_count = models.PositiveIntegerField(default=0, verbose_name='Количество лайков')
+
     def __str__(self):
         return self.title
 
