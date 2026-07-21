@@ -4,6 +4,6 @@
        class="btn btn-outline-secondary"
        data-key="likes"
        data-counter-id="count-{{ prefix }}-{{ obj.pk }}">
-        {% if request.user in obj.likes.all %}Убрать лайк{% else %}"Лайк"{% endif %}
+        {% if request.user in obj.likes.all %}<i class="fa-solid fa-heart"></i>{% else %}<i class="fa-regular fa-heart"></i>{% endif %}
     </a>
 {% endif %}

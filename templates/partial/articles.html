@@ -16,17 +16,14 @@
                     </div>
                     <div class="text-end me-3">
 
-                        {% include 'partial/like.html' with obj=comment prefix='comment' like_url_name='articles:comment-like' only %}
-                        
+                        {% include 'partial/like.html' with obj=article prefix='article' like_url_name='articles:article-like' %}
+
                         <a href="{% url 'articles:update' article.pk %}" class="btn btn-outline-warning">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                         <a href="{% url 'articles:delete' article.pk %}" class="btn btn-outline-danger">
                             <i class="fa-regular fa-trash-can"></i>
                         </a>
-{#                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#article-{{ article.pk }}-Modal">#}
-{#                            <i class="fa-regular fa-trash-can"></i>#}
-{#                        </button>#}
                     </div>
                 </div>
             </a>
